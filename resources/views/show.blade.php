@@ -11,6 +11,7 @@
       <th scope="col">Email</th>
       <th scope="col">Password</th>
       <th scope="col">Mobile</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,12 @@
         <td>{{$value->email}}</td>
         <td>{{$value->password}}</td>
         <td>{{$value->mobile}}</td>
+        <td>
+          <a href="{{ Route('edit',$value->id)}}" class="btn btn-success">Edit</a>
+        </td>
+        <td>
+          <a href="{{ Route('delete',$value->id)}}" class="btn btn-danger">Delete</a>
+        </td>
       </tr>
       <?php endforeach; ?>
 

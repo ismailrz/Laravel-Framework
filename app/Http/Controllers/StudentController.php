@@ -43,7 +43,7 @@ class StudentController extends Controller
         $student->mobile = $request->mobile;
 
         $student->save();
-        return redirect()->Route('create');
+        return redirect()->Route('show');
     }
 
     /**
@@ -65,9 +65,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($student)
     {
-        //
+        $student = Student::find($student);
+        return view('edit')->with('student',$student);
     }
 
     /**
@@ -77,9 +78,19 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $student)
     {
-        //
+        $student = Student::find($student);
+
+        $student->fname = $request->fname;
+        $student->lname = $request->lname;
+        $student->email = $request->email;
+        $student->password = $request->password;
+        $student->mobile = $request->mobile;
+
+        $student->save();
+        return redirect()->Route('show');
+
     }
 
     /**
@@ -88,8 +99,11 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function delete($student)
     {
-        //
+        $student = Student::find($student);
+
+        $student -> delete();
+        return redirect()->Route('show');
     }
 }
