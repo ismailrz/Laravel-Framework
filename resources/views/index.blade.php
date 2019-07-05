@@ -63,7 +63,9 @@
             }
         </style>
     </head>
-    <body>
+    @extends('master')
+@section('content')
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Student Management System by Ismail
                 </div>
 
                 <div class="links">
@@ -95,5 +97,4 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+@endsection

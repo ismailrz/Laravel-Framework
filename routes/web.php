@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/index', function () {
+    return view('index');
 });
+Route::get('/','StudentController@index')->name('index');
+Route::get('/create','StudentController@create')->name('create');
+Route::get('/show','StudentController@show')->name('show');
+
+
+Route::post('/store','StudentController@store')->name('store');
