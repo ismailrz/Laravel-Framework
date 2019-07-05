@@ -22,7 +22,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{Route('create')}}">Add Student</a>
       </li>
-      <li class="nav-item">
+      <li >
         <a class="nav-link" href="{{Route('show')}}">Show Student</a>
       </li>
       <li class="nav-item dropdown">
@@ -36,14 +36,29 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="{{ Route('show')}}" tabindex="-1" aria-disabled="true">Disable</a>
-      </li>
+
+          <form class="form-inline">
+            {{ csrf_field() }}
+            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+        <li class="nav-item">
+          @if (Route::has('login'))
+              <div class="top-right links">
+                  @auth
+                      <a href="{{ url('/') }}">Log Out</a>
+                  @else
+                      <a href="{{ route('login') }}">Login</a>
+
+                      @if (Route::has('register'))
+                          <a href="{{ route('register') }}">Register</a>
+                      @endif
+                  @endauth
+              </div>
+          @endif
+        </li>
   </div>
   </nav>
 

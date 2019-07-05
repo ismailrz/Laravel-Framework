@@ -23,3 +23,8 @@ Route::get('/delete/{id}','StudentController@delete')->name('delete');
 
 Route::post('/store','StudentController@store')->name('store');
 Route::post('/update/{id}','StudentController@update')->name('update');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -5,6 +5,16 @@
 <!-- Default form register -->
 <form class="text-center border border-light p-5" action="{{Route('store')}}" method="post" enctype="multipart/form-data">
 
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   {{ csrf_field() }}
 
     <p class="h4 mb-4">Sign up</p>
