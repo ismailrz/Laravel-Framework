@@ -28,3 +28,8 @@ Route::post('/update/{id}','StudentController@update')->name('update');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// pageController
+
+Route::get('/post','pageController@index')->name('index');
